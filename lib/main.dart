@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:insta/sign-in.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,9 +30,35 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const signUpScreen()),
+                  );
+                },
+                child: Text(
+                  'Lets Get Started',
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 20.0,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.green,
+            tooltip: 'Increment',
+            child: Text('>'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const signUpScreen()),
+              );
+            }),
       ),
     );
   }

@@ -48,36 +48,33 @@ class _signUpScreenState extends State<signUpScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.all(30.0),
-        child: Column(
-          c
-            children: [
-              TextFormField(
-                controller: emailController,
-                // ignore: prefer_const_constructors
-                decoration: InputDecoration(hintText: 'Email'),
+        child: Column(children: [
+          TextFormField(
+            controller: emailController,
+            // ignore: prefer_const_constructors
+            decoration: InputDecoration(hintText: 'Email'),
+          ),
+          SizedBox(height: 20),
+          TextFormField(
+            controller: passwordController,
+            decoration: InputDecoration(hintText: 'password'),
+          ),
+          SizedBox(height: 40),
+          GestureDetector(
+            onTap: () {
+              login(emailController.text.toString(),
+                  passwordController.text.toString());
+            },
+            child: Container(
+              height: 50,
+              decoration: BoxDecoration(
+                  color: Colors.green, borderRadius: BorderRadius.circular(20)),
+              child: Center(
+                child: Text('Sign In'),
               ),
-              SizedBox(height: 20),
-              TextFormField(
-                controller: passwordController,
-                decoration: InputDecoration(hintText: 'password'),
-              ),
-              SizedBox(height: 40),
-              GestureDetector(
-                onTap: () {
-                  login(emailController.text.toString(),
-                      passwordController.text.toString());
-                },
-                child: Container(
-                  height: 50,
-                  decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Center(
-                    child: Text('Sign In'),
-                  ),
-                ),
-              ),
-            ]),
+            ),
+          ),
+        ]),
       ),
       floatingActionButton: FloatingActionButton(
           tooltip: 'Increment',
